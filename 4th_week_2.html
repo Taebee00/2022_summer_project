@@ -1,0 +1,39 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div>
+            <div>
+                <input type="checkbox">
+                <label for="">운동</label>
+            </div>
+            <div>
+                <input type="checkbox">
+                <label for="">쇼핑</label>
+            </div>
+        </div>
+        <script>
+            const inputs=document.querySelectorAll('input');
+            inputs.forEach((elem,idx)=>{
+                elem.addEventListener('click',()=>{
+                    console.log(idx+' 번쨰 체크박스 클릭됨');
+                })
+            })
+            // addEventListner가 타겟을 찾는 방법: 위의 계층에서 아래로 capture 하며 찾고 찾은 후에는 bubble로 위의 계층으로 올라옴 
+            // addEventlistner(,true): 마지막 인자를 true 값으로 주면 위의 계층에서 아래로 내려갈 떄 event 실행
+            const divs=document.querySelectorAll('div');
+            divs.forEach((elem,idx)=>{
+                elem.addEventListener('click',()=>{
+                    console.log(idx+' 번쨰 디비전 capture phase');
+                },true)
+            })
+            // addEventListner(,false): 마지막 인자를 false 값으로 주면 아래 계층에서 위로 올라가면서 event 실행 (default)
+            divs.forEach((elem,idx)=>{
+                elem.addEventListener('click',()=>{
+                    console.log(idx+' 번쨰 디비전 bubble phase');
+                })
+            })
+        </script>
+    </body>
+</html>

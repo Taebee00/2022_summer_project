@@ -1,0 +1,53 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id="h11">여기입니다.</h1>
+        <h1 id="h12">여기인가?</h1>
+        <h1 id="h13">여기일수도?</h1>
+        <!-- 자바스크립트 출력-->
+        <script>
+            // 1. 출력: console.log('')
+            console.log("이것은 자바스크립트입니다.");
+            console.log('이것은 자바스크립트입니다.');
+            console.log(`이것은 자바스크립트입니다.`);
+            // + : 문자열 연결 연산자
+            console.log('4의 자료형은 ' + typeof(4));
+            console.log('hello의 자료형은 '+typeof("hello"));
+            console.log('문자열 123과 숫자 5를 더하면 '+'123'+5) // 1234
+            //parseInt('문자열'): 문자열을 정수로 변환
+            console.log('문자열 123을 정수로 파싱한 후 숫자 5를 더하면 '+(parseInt('123')+5)); //128
+            // 변수
+            // const: 한번 대입하면 변경 불가한 변수
+            // let: 계속 변경 가능한 변수
+            let a =10;
+            let b=20;
+            let c = a+b;
+            const d = a*10;
+            const e = 2**3;
+            console.log('a는 '+a,+', b는 '+b,', c는 '+c,', d는 '+d, ', e는 '+e);
+            // 사용자에게 입력을 받고 h1 의 내용을 바꿔보기
+            //prompt(): 사용자에게 입력을 받음
+            //document.querySelector(''):전체 문서에서 ''에 해당하는 내용을 찾음
+            const Msg=prompt();
+            document.querySelector('h1#h12').textContent=Msg;
+            // 연산자
+            // 자바스크립트에서는 ==연산을 자동으로 형변환을 해서 사용, 자료형까지 비교하려면 ===사용해야함
+            // > < 연산자로 문자열 사전비교 가능
+            console.log('\'1\'==1? '+('1'==1));
+            console.log('\'1\'===1? '+('1'===1));
+            console.log('apple이 사전순으로 banana보다 앞인가? '+('apple'<'banana'));
+            // 자바에서는 undefined 라는 값이 있음. 변수가 정의되지 않았을 때
+            //let und;
+            //console.log(und);
+            // 삼항 연산자
+            const score=parseInt(prompt());
+            const und=(score>=50)?'pass':'fail';
+            document.querySelector('h1#h13').textContent=und;
+            console.log(und);
+            
+
+        </script>
+    </body>
+</html>

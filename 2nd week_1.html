@@ -1,0 +1,51 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id="h1">아나</h1>
+        <script>
+            const input=parseInt(prompt());
+            let string='';
+            // for 반복문 사용
+            for (let i=0;i<input;i++)
+            {
+                string+='입력한만큼 반복합니다 ';
+            }
+            document.querySelector('h1#h1').textContent=string;
+            // 자바스크립트에서 배열의 자료형은 통일되지 않아도 됨
+            let arr=[1,2,3,[1,true,'a'],'a','Last',true];
+            console.log('변화하기 전 arr는'+arr);
+            console.log('arr의 길이는'+arr.length)
+            // pop,shift,push,unshift등의 연산으로 배열을 처리할 수 있음
+            const popvaule=arr.pop();
+            const shiftvalue=arr.shift();
+            const pushvalue='Last';
+            const unshiftvalue='First';
+            arr.push(pushvalue);
+            arr.unshift(unshiftvalue);
+            console.log('pop,shift,push,unshift후 arr는 '+arr);
+            // splice 연산으로 배열의 중간값을 처리할 수도 있음
+            // splice('참조할 인덱스','참조할 인덱스부터 삭제할 인덱스까지의 길이','추가할 요소')
+            arr.splice(3,2,'splicevalue','anothersplicevalue');
+            console.log('splice후 arr는'+arr);
+            //include, indexof 함수
+            console.log('배열에 \'Last\' 요소가 있는가? '+arr.includes('Last'));
+            console.log('있다면 몇번째 인덱스에 있는가?'+arr.indexOf('Last'));
+            console.log('가장 마지막에 찾은 \'Last\' 요소의 인덱스는 어디인가?'+arr.lastIndexOf('Last'))
+            // 함수 선언하기 - 방법이 2가지 / 반환값을 지정하지 않음
+            
+            // 1.
+            function Helloname(name)
+            {
+                console.log('안녕하세요 제 이름은 '+name+'입니다')
+                return name;
+            }
+            // 2.
+            const func = (name) => {console.log('안녕하세요 제 이름은 '+name+'입니다')}
+            Helloname('나영조');
+            func('나영조');
+            console.log(Helloname('나영조'));
+        </script>
+    </body>
+</html>

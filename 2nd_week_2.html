@@ -1,0 +1,30 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+
+            // Object Literal: 파이썬의 Dictionary 처럼 key값과 value값으로 만들어진 배열\
+            // 함수도 요소로 넣을 수 있음
+            const person={name:'나영조',age:22,male:true,detail:{hobby:'football'},hello:()=>{console.log('안녕하세요')}};
+            console.log(person.name+' '+person.age+' '+person.male)
+
+            // Object.keys/values() 로 key값과 value값 출력 가능
+
+            console.log('Key값을 배열로 출력하면: '+Object.keys(person));
+            console.log('Value값을 배열로 출력하면: '+Object.values(person));
+
+            // forEach로 Object Literal의 key값과 value값 출력해보기
+
+            const func=(ol)=>{
+                const arr=Object.keys(ol);
+                arr.forEach((elem)=>{
+                    console.log('key는 '+elem+'이고 value는 '+ol[elem]+'입니다.');
+                })
+            };
+            func(person);
+            console.log(person.detail.hobby); // ol 안의 ol도 출력 가능
+            person.hello(); // ol 안의 함수도 출력 가능
+        </script>
+    </body>
+</html>

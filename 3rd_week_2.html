@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <style>
+            #operator{
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+                align-items: center;
+            }
+            #result{
+                width: 180px;
+                height: 50px;
+                margin: 5px;
+                align-items: right;
+            }
+            button{
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <input readonly id='operator'>
+            <input readonly id='result' type="number">
+        </div>
+        <div>
+            <button id = 'n7'>7</button>
+            <button id = 'n8'>8</button>
+            <button id = 'n9'>9</button>
+            <button id = 'plus'>+</button>
+        </div>
+
+        <div>
+            <button id = 'n4'>4</button>
+            <button id = 'n5'>5</button>
+            <button id = 'n6'>6</button>
+            <button id = 'minus'>-</button>
+        </div>
+
+        <div>
+            <button id = 'n1'>1</button>
+            <button id = 'n2'>2</button>
+            <button id = 'n3'>3</button>
+            <button id="multiply">*</button>
+        </div>
+
+        <div>
+            <button id = 'clear'>clear</button>
+            <button id = 'n0'>0</button>
+            <button id = 'equal'>=</button>
+            <button id="divide">/</button>
+        </div>
+    </body>
+        <script>
+            let state='first_num';
+            let first_num='';
+            let second_num='';
+            let operator;
+            const operatorbtn=document.querySelector('#operator');
+            const resultbtn=document.querySelector('#result');
+            const num_input=(n)=>{
+                if (state=='first_num')
+                {
+                    first_num=first_num+n;
+                    resultbtn.value=first_num;
+                }
+                else if (state=='second_num')
+                {
+                    second_num=second_num+n;
+                    resultbtn.value=second_num;
+                }
+            }          
+            const n0=document.querySelector('#n0').addEventListener('click',()=> {num_input('0')});
+            const n1=document.querySelector('#n1').addEventListener('click',()=> {num_input('1')});
+            const n2=document.querySelector('#n2').addEventListener('click',()=> {num_input('2')});
+            const n3=document.querySelector('#n3').addEventListener('click',()=> {num_input('3')});
+            const n4=document.querySelector('#n4').addEventListener('click',()=> {num_input('4')});
+            const n5=document.querySelector('#n5').addEventListener('click',()=> {num_input('5')});
+            const n6=document.querySelector('#n6').addEventListener('click',()=> {num_input('6')});
+            const n7=document.querySelector('#n7').addEventListener('click',()=> {num_input('7')});
+            const n8=document.querySelector('#n8').addEventListener('click',()=> {num_input('8')});
+            const n9=document.querySelector('#n9').addEventListener('click',()=> {num_input('9')});
+            const plus=document.querySelector('#plus').addEventListener('click',()=>
+            {
+                state='second_num'
+                operator='plus'
+                operatorbtn.value='+';
+            });
+            const minus=document.querySelector('#minus').addEventListener('click',()=>
+            {
+                state='second_num'
+                operator='minus'
+                operatorbtn.value='-';
+            });
+            const multiply=document.querySelector('#multiply').addEventListener('click',()=>
+            {
+                state='second_num'
+                operator='multiply'
+                operatorbtn.value='*';
+            });
+            const divide=document.querySelector('#divide').addEventListener('click',()=>
+            {
+                state='second_num'
+                operator='divide'
+                operatorbtn.value='/';
+            });
+            const clear=document.querySelector('#clear').addEventListener('click',()=>
+            {
+                state='first_num'
+                first_num='';
+                second_num='';
+                operatorbtn.value='';
+                resultbtn.value='';
+            });
+            const equal=document.querySelector('#equal').addEventListener('click',()=>
+            {
+                state='first_num'
+                if (operator=='plus')
+                {
+                    first_num=parseInt(first_num);
+                    second_num=parseInt(second_num);
+                    resultbtn.value=first_num+second_num;
+                }
+                else if (operator=='minus')
+                {
+                    first_num=parseInt(first_num);
+                    second_num=parseInt(second_num);
+                    resultbtn.value=first_num-second_num;
+                }
+                if (operator=='multiply')
+                {
+                    first_num=parseInt(first_num);
+                    second_num=parseInt(second_num);
+                    resultbtn.value=first_num*second_num;
+                }
+                if (operator=='divide')
+                {
+                    first_num=parseInt(first_num);
+                    second_num=parseInt(second_num);
+                    resultbtn.value=first_num/second_num;
+                }
+            });
+        </script>
+</html>

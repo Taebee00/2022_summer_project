@@ -1,0 +1,41 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>숫자를 입력하세요</h1>
+        <div>
+            <input id='input_num' type='text'>
+            <button id="btn_submit">제출</button>
+            <button id="btn_chgClr">색 바꾸기</button>
+        </div>
+        <h1 id="result"></h1>
+        <script> // Script로 특정 이벤트를 처리
+            // html의 태그들을 Script에서 쓸 수 있도록 가져옴
+            const input_num=document.querySelector('#input_num');
+            const btn_submit=document.querySelector('#btn_submit');
+            const btn_chgClr=document.querySelector('#btn_chgClr');
+            const result=document.querySelector('#result');
+            // addEventListner('동작', 함수) 로 특정 이벤트에 대한 처리
+            // 입력받은 정수가 홀수인지 짝수인지 출력해주고 버튼을 입력받을 때 텍스트의 색이 바뀌도록 하는 프로그램
+            btn_submit.addEventListener('click', ()=>{
+                console.log('제출 버튼이 클릭됨');
+                input_val=parseInt(input_num.value);
+                let input_result='홀'
+                if (input_val%2==0)
+                {
+                    input_result='짝'
+                }
+                result.textContent='입력하신 정수는 '+input_result+'수입니다';
+                input_num.value='';
+            })
+            const colorarr=['red','blue','green'];
+            let coloridx=0;
+            btn_chgClr.addEventListener('click',()=>{
+                console.log('색바꾸기 버튼이 클릭됨');
+                result.style.color=colorarr[coloridx];
+                coloridx=(coloridx+1)%3;
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <h1>3번째 주의 3번 파일</h1>
+    </head>
+    <body>
+        <script>
+            let a=Array(10);
+            a.fill(10);
+            console.log('a는 '+a);
+            const b=a.fill(0);
+            console.log('b는 '+b);
+            const c=a.fill(5);
+            console.log('c는 '+c);
+            // 함수로 원래의 배열과 매핑하여 새로운 배열을 만들어줌
+            // map((elem,idx)=>함수)
+            const d=a.map((elem,idx)=>{return idx+1});
+            console.log('d는 '+d);
+            // sort (a,b를 매개변수로 받아 정렬해줌)
+            const e=[1,4,3,5,3,1,4,2,1,4]
+            e.sort((a,b)=>a-b);
+            console.log(e);
+            const f=['나','가','바','자','아']
+            f.sort((a,b)=>a<b?-1:a>b?1:0);
+            console.log('f는 '+f);
+        </script>
+    </body>
+</html>

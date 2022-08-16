@@ -1,0 +1,18 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            // setTImeout()함수: 설정한 시간 후에 실행됨
+            // setTimeout(실행할 함수, 시간)
+            setTimeout(()=>{console.log('5초 뒤에 나타납니다')},5000)
+            // setInterval()함수: 설정한 시간을 주기로 실행됨
+            // setInterval(실행할 함수, 시간)
+            const id=setInterval(()=>{console.log('1초 간격으로 나타납니다')},1000);
+            setTimeout(clearInterval(id),5000);
+        </script>
+        
+
+    </body>
+</html>

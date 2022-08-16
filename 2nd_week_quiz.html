@@ -1,0 +1,18 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            const myArray=[1,2,'apple','banana',3.14,'apple',true,false,2,'apple'];
+            for (let i=0;i<myArray.length;i++)
+            {
+                if (myArray[i]=='apple')
+                {
+                    myArray.splice(i,1);
+                }
+            }
+            console.log(myArray);
+        </script>
+    </body>
+</html>

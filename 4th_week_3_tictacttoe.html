@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+            td{
+                border: 3px solid black;
+                width: 50px;
+                height: 50px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            const cp_table=document.createElement('table');
+            const cp_result=document.createElement('div');
+            let mark='O';
+            let turn=0;
+            const winlose=(_id)=>{
+                let row=_id.parentNode.rowIndex;
+                let col=_id.cellIndex;
+                if (arr_table[row][0].textContent===mark&&
+                    arr_table[row][1].textContent===mark&&
+                    arr_table[row][2].textContent===mark)
+                    {
+                        return true;
+                    }
+                else if (arr_table[0][col].textContent===mark&&
+                        arr_table[1][col].textContent===mark&&
+                        arr_table[2][col].textContent===mark)
+                        {
+                            return true;
+                        }
+                else if (arr_table[0][0].textContent===mark&&
+                        arr_table[1][1].textContent===mark&&
+                        arr_table[2][2].textContent===mark)
+                        {
+                            return true;
+                        }
+                else if (arr_table[0][2].textContent===mark&&
+                        arr_table[1][1].textContent===mark&&
+                        arr_table[2][0].textContent===mark)
+                        {
+                            return true;
+                        }
+                return false;
+            }
+
+            const table_event_listener=(event)=>{
+                const which_id=event.target.closest('td');
+                if (which_id.textContent!=='')
+                {
+                    return;
+                }
+                which_id.textContent=mark;
+                if (winlose(which_id)===true)
+                {
+                    cp_result.textContent=mark+' 승리';
+                    cp_table.removeEventListener('click', table_event_listener);
+                    return;
+                }
+                mark=(mark==='O')?'X':'O';
+                turn=turn+1;
+                if (turn===9)
+                {
+                    cp_result.textContent='무승부';
+                    cp_table.removeEventListener('click', table_event_listener);
+                    return;
+                }
+            };
+            
+            let arr_table=[];
+            for (let i=0;i<3;i++)
+            {
+                let arr_tr=[];
+                const cp_tr=document.createElement('tr');   
+                for (let j=0;j<3;j++)
+                {
+                    const cp_td=document.createElement('td');
+                    cp_tr.append(cp_td);
+                    let arr_td=cp_td;
+                    arr_tr.push(arr_td);
+                }
+                cp_table.append(cp_tr);
+                arr_table.push(arr_tr);
+            }
+            document.body.append(cp_table);
+            document.body.append(cp_result);
+            cp_table.addEventListener('click', table_event_listener);
+        </script>
+    </body>
+</html>
