@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--차트를 그릴 수 있는 자바스크립트 파일 가져옴-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"> </script>
+    </head>
+    <body>
+        <!--차트를 그릴 캔버스 만듬-->
+        <canvas id="myChart" width="400" height="320"> </canvas>
+    </body>
+    <script>
+        // labels: x축 데이터
+        // data: y축 데이터와 설정값
+        const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June']
+        const data = {
+            labels : labels,
+            datasets : [{
+                label: 'My First dataset',
+                borderColor : 'rgb(255,99,132)',
+                data : [0,10,5,2,20,30]
+            }]
+        }
+        // 설정
+        const config = {
+            type : 'line',
+            data: data,
+            options : {
+                responsive:true,
+                maintainAspectRatio:false
+            }
+        }
+        const myChart = new Chart(document.getElementById('myChart'), config)
+    </script>
+</html>
